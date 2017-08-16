@@ -1,0 +1,57 @@
+
+<div>
+    <h2><span>Location</span> {{vm.location.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Uuid</span></dt>
+        <dd>
+            <span>{{vm.location.uuid}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.location.name}}</span>
+        </dd>
+        <dt><span>Abbreviation</span></dt>
+        <dd>
+            <span>{{vm.location.abbreviation}}</span>
+        </dd>
+        <dt><span>Brief</span></dt>
+        <dd>
+            <span>{{vm.location.brief}}</span>
+        </dd>
+        <dt><span>Location Status</span></dt>
+        <dd>
+            <span>{{vm.location.locationStatus}}</span>
+        </dd>
+        <dt><span>Managed By</span></dt>
+        <dd>
+            <span>{{vm.location.managedBy}}</span>
+        </dd>
+        <dt><span>Label</span></dt>
+        <dd>
+            <span ng-repeat="label in vm.location.labels">
+                <a ui-sref="label-detail({id: label.id})">{{label.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Location Type</span></dt>
+        <dd>
+            <a ui-sref="location-type-detail({id:vm.location.locationType.id})">{{vm.location.locationType.id}}</a>
+        </dd>
+        <dt><span>Coordinate</span></dt>
+        <dd>
+            <a ui-sref="coordinate-detail({id:vm.location.coordinate.id})">{{vm.location.coordinate.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-detail.edit({id:vm.location.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

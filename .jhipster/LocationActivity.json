@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "activity",
+            "otherEntityName": "activity",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "javadoc": "many to Many With attributes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brief",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170816092802",
+    "entityTableName": "location_activity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "facility",
+            "otherEntityName": "facility",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "javadoc": "many to Many With attributes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriprion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "icon",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20170816092801",
+    "entityTableName": "location_facility",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

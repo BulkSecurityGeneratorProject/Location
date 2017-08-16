@@ -1,0 +1,71 @@
+<div>
+    <h2>Label Groups</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="label-group.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Label Group
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Description</span></th>
+                    <th><span>Icon</span></th>
+                    <th><span>Label</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="labelGroup in vm.labelGroups track by labelGroup.id">
+                    <td><a ui-sref="label-group-detail({id:labelGroup.id})">{{labelGroup.id}}</a></td>
+                    <td>{{labelGroup.uuid}}</td>
+                    <td>{{labelGroup.name}}</td>
+                    <td>{{labelGroup.description}}</td>
+                    <td>
+                        <a ng-if="labelGroup.icon" ng-click="vm.openFile(labelGroup.iconContentType, labelGroup.icon)">
+                            <img data-ng-src="{{'data:' + labelGroup.iconContentType + ';base64,' + labelGroup.icon}}" style="max-height: 30px;" alt="labelGroup image"/>
+                        </a>
+                        <span ng-if="labelGroup.icon">{{labelGroup.iconContentType}}, {{vm.byteSize(labelGroup.icon)}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="label-detail({id:labelGroup.label.id})">{{labelGroup.label.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="label-group-detail({id:labelGroup.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="label-group.edit({id:labelGroup.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="label-group.delete({id:labelGroup.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

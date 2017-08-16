@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Location Attraction</span> {{vm.locationAttraction.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Uuid</span></dt>
+        <dd>
+            <span>{{vm.locationAttraction.uuid}}</span>
+        </dd>
+        <dt><span>Brief</span></dt>
+        <dd>
+            <span>{{vm.locationAttraction.brief}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.locationAttraction.description}}</span>
+        </dd>
+        <dt><span>Location</span></dt>
+        <dd>
+            <a ui-sref="location-detail({id:vm.locationAttraction.location.id})">{{vm.locationAttraction.location.id}}</a>
+        </dd>
+        <dt><span>Attraction</span></dt>
+        <dd>
+            <a ui-sref="attraction-detail({id:vm.locationAttraction.attraction.id})">{{vm.locationAttraction.attraction.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-attraction-detail.edit({id:vm.locationAttraction.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

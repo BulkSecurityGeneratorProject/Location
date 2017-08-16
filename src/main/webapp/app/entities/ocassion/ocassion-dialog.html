@@ -1,0 +1,75 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myOcassionLabel">Create or edit a Ocassion</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ocassion.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ocassion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_uuid">Uuid</label>
+            <input type="text" class="form-control" name="uuid" id="field_uuid"
+                    ng-model="vm.ocassion.uuid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.ocassion.name"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_start">Start</label>
+                <div class="input-group">
+                    <input id="field_start" type="text" class="form-control" name="start" datetime-picker="{{dateformat}}" ng-model="vm.ocassion.start" is-open="vm.datePickerOpenStatus.start"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('start')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_end">End</label>
+                <div class="input-group">
+                    <input id="field_end" type="text" class="form-control" name="end" datetime-picker="{{dateformat}}" ng-model="vm.ocassion.end" is-open="vm.datePickerOpenStatus.end"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('end')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cycle">Cycle</label>
+            <select class="form-control" name="cycle" ng-model="vm.ocassion.cycle" id="field_cycle">
+                <option value="ONEOFF">ONEOFF</option>
+                <option value="DAILY">DAILY</option>
+                <option value="WEEKLY">WEEKLY</option>
+                <option value="MONTHLY">MONTHLY</option>
+                <option value="ANNUALLY">ANNUALLY</option>
+                <option value="BIANNUALLY">BIANNUALLY</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_organizationID">Organization ID</label>
+            <input type="text" class="form-control" name="organizationID" id="field_organizationID"
+                    ng-model="vm.ocassion.organizationID"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

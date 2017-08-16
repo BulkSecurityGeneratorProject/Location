@@ -1,0 +1,44 @@
+
+<div>
+    <h2><span>Location Type</span> {{vm.locationType.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Uuid</span></dt>
+        <dd>
+            <span>{{vm.locationType.uuid}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.locationType.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.locationType.description}}</span>
+        </dd>
+        <dt><span>Icon</span></dt>
+        <dd>
+            <div ng-if="vm.locationType.icon">
+                <a ng-click="vm.openFile(vm.locationType.iconContentType, vm.locationType.icon)">
+                    <img data-ng-src="{{'data:' + vm.locationType.iconContentType + ';base64,' + vm.locationType.icon}}" style="max-width: 100%;" alt="locationType image"/>
+                </a>
+                {{vm.locationType.iconContentType}}, {{vm.byteSize(vm.locationType.icon)}}
+            </div>
+        </dd>
+        <dt><span>Label Group</span></dt>
+        <dd>
+            <a ui-sref="label-group-detail({id:vm.locationType.labelGroup.id})">{{vm.locationType.labelGroup.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-type-detail.edit({id:vm.locationType.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

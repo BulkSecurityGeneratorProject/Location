@@ -1,0 +1,67 @@
+<div>
+    <h2>Attractions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="attraction.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Attraction
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Description</span></th>
+                    <th><span>Icon</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="attraction in vm.attractions track by attraction.id">
+                    <td><a ui-sref="attraction-detail({id:attraction.id})">{{attraction.id}}</a></td>
+                    <td>{{attraction.uuid}}</td>
+                    <td>{{attraction.name}}</td>
+                    <td>{{attraction.description}}</td>
+                    <td>
+                        <a ng-if="attraction.icon" ng-click="vm.openFile(attraction.iconContentType, attraction.icon)">
+                            <img data-ng-src="{{'data:' + attraction.iconContentType + ';base64,' + attraction.icon}}" style="max-height: 30px;" alt="attraction image"/>
+                        </a>
+                        <span ng-if="attraction.icon">{{attraction.iconContentType}}, {{vm.byteSize(attraction.icon)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="attraction-detail({id:attraction.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="attraction.edit({id:attraction.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="attraction.delete({id:attraction.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

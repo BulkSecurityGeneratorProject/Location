@@ -1,0 +1,40 @@
+
+<div>
+    <h2><span>Attraction</span> {{vm.attraction.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Uuid</span></dt>
+        <dd>
+            <span>{{vm.attraction.uuid}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.attraction.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.attraction.description}}</span>
+        </dd>
+        <dt><span>Icon</span></dt>
+        <dd>
+            <div ng-if="vm.attraction.icon">
+                <a ng-click="vm.openFile(vm.attraction.iconContentType, vm.attraction.icon)">
+                    <img data-ng-src="{{'data:' + vm.attraction.iconContentType + ';base64,' + vm.attraction.icon}}" style="max-width: 100%;" alt="attraction image"/>
+                </a>
+                {{vm.attraction.iconContentType}}, {{vm.byteSize(vm.attraction.icon)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="attraction-detail.edit({id:vm.attraction.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

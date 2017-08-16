@@ -1,0 +1,66 @@
+<div>
+    <h2>Location Relationships</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="location-relationship.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Location Relationship
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Description</span></th>
+                    <th><span>Child ID</span></th>
+                    <th><span>Location Relationship Type</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="locationRelationship in vm.locationRelationships track by locationRelationship.id">
+                    <td><a ui-sref="location-relationship-detail({id:locationRelationship.id})">{{locationRelationship.id}}</a></td>
+                    <td>{{locationRelationship.uuid}}</td>
+                    <td>{{locationRelationship.description}}</td>
+                    <td>
+                        <a ui-sref="location-detail({id:locationRelationship.childID.id})">{{locationRelationship.childID.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="location-relationship-type-detail({id:locationRelationship.locationRelationshipType.id})">{{locationRelationship.locationRelationshipType.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="location-relationship-detail({id:locationRelationship.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location-relationship.edit({id:locationRelationship.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location-relationship.delete({id:locationRelationship.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

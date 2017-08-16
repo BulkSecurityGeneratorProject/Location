@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Location Relationship</span> {{vm.locationRelationship.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Uuid</span></dt>
+        <dd>
+            <span>{{vm.locationRelationship.uuid}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.locationRelationship.description}}</span>
+        </dd>
+        <dt><span>Child ID</span></dt>
+        <dd>
+            <a ui-sref="location-detail({id:vm.locationRelationship.childID.id})">{{vm.locationRelationship.childID.id}}</a>
+        </dd>
+        <dt><span>Location Relationship Type</span></dt>
+        <dd>
+            <a ui-sref="location-relationship-type-detail({id:vm.locationRelationship.locationRelationshipType.id})">{{vm.locationRelationship.locationRelationshipType.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-relationship-detail.edit({id:vm.locationRelationship.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

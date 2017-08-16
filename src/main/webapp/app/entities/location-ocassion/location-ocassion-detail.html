@@ -1,0 +1,44 @@
+
+<div>
+    <h2><span>Location Ocassion</span> {{vm.locationOcassion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Uuid</span></dt>
+        <dd>
+            <span>{{vm.locationOcassion.uuid}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.locationOcassion.description}}</span>
+        </dd>
+        <dt><span>Icon</span></dt>
+        <dd>
+            <div ng-if="vm.locationOcassion.icon">
+                <a ng-click="vm.openFile(vm.locationOcassion.iconContentType, vm.locationOcassion.icon)">
+                    <img data-ng-src="{{'data:' + vm.locationOcassion.iconContentType + ';base64,' + vm.locationOcassion.icon}}" style="max-width: 100%;" alt="locationOcassion image"/>
+                </a>
+                {{vm.locationOcassion.iconContentType}}, {{vm.byteSize(vm.locationOcassion.icon)}}
+            </div>
+        </dd>
+        <dt><span>Location</span></dt>
+        <dd>
+            <a ui-sref="location-detail({id:vm.locationOcassion.location.id})">{{vm.locationOcassion.location.id}}</a>
+        </dd>
+        <dt><span>Ocassion</span></dt>
+        <dd>
+            <a ui-sref="ocassion-detail({id:vm.locationOcassion.ocassion.id})">{{vm.locationOcassion.ocassion.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="location-ocassion-detail.edit({id:vm.locationOcassion.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

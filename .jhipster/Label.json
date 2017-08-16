@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "labelGroup",
+            "otherEntityName": "labelGroup",
+            "otherEntityRelationshipName": "label"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "label"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "icon",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "changelogDate": "20170816092754",
+    "entityTableName": "label",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

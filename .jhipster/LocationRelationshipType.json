@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationRelationship",
+            "otherEntityName": "locationRelationship",
+            "otherEntityRelationshipName": "locationRelationshipType"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "javadoc": "many to Many With attributes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170816092800",
+    "entityTableName": "location_relationship_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

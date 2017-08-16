@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationOcassion",
+            "otherEntityName": "locationOcassion",
+            "otherEntityRelationshipName": "ocassion"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "start",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "end",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "cycle",
+            "fieldType": "Cycle",
+            "fieldValues": "ONEOFF,DAILY,WEEKLY,MONTHLY,ANNUALLY,BIANNUALLY"
+        },
+        {
+            "fieldName": "organizationID",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170816092758",
+    "entityTableName": "ocassion",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

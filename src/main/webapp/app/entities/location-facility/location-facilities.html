@@ -1,0 +1,73 @@
+<div>
+    <h2>Location Facilities</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="location-facility.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Location Facility
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Descriprion</span></th>
+                    <th><span>Icon</span></th>
+                    <th><span>Location</span></th>
+                    <th><span>Facility</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="locationFacility in vm.locationFacilities track by locationFacility.id">
+                    <td><a ui-sref="location-facility-detail({id:locationFacility.id})">{{locationFacility.id}}</a></td>
+                    <td>{{locationFacility.uuid}}</td>
+                    <td>{{locationFacility.descriprion}}</td>
+                    <td>
+                        <a ng-if="locationFacility.icon" ng-click="vm.openFile(locationFacility.iconContentType, locationFacility.icon)">
+                            <img data-ng-src="{{'data:' + locationFacility.iconContentType + ';base64,' + locationFacility.icon}}" style="max-height: 30px;" alt="locationFacility image"/>
+                        </a>
+                        <span ng-if="locationFacility.icon">{{locationFacility.iconContentType}}, {{vm.byteSize(locationFacility.icon)}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="location-detail({id:locationFacility.location.id})">{{locationFacility.location.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="facility-detail({id:locationFacility.facility.id})">{{locationFacility.facility.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="location-facility-detail({id:locationFacility.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location-facility.edit({id:locationFacility.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location-facility.delete({id:locationFacility.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

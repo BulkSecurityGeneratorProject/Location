@@ -1,0 +1,66 @@
+<div>
+    <h2>Ocassions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="ocassion.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Ocassion
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Start</span></th>
+                    <th><span>End</span></th>
+                    <th><span>Cycle</span></th>
+                    <th><span>Organization ID</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ocassion in vm.ocassions track by ocassion.id">
+                    <td><a ui-sref="ocassion-detail({id:ocassion.id})">{{ocassion.id}}</a></td>
+                    <td>{{ocassion.uuid}}</td>
+                    <td>{{ocassion.name}}</td>
+                    <td>{{ocassion.start | date:'medium'}}</td>
+                    <td>{{ocassion.end | date:'medium'}}</td>
+                    <td>{{ocassion.cycle}}</td>
+                    <td>{{ocassion.organizationID}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="ocassion-detail({id:ocassion.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ocassion.edit({id:ocassion.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ocassion.delete({id:ocassion.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

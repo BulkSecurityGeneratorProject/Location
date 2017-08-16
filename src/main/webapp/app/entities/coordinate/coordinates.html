@@ -1,0 +1,64 @@
+<div>
+    <h2>Coordinates</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="coordinate.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Coordinate
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Longitude</span></th>
+                    <th><span>Latitude</span></th>
+                    <th><span>Altitude</span></th>
+                    <th><span>Name</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="coordinate in vm.coordinates track by coordinate.id">
+                    <td><a ui-sref="coordinate-detail({id:coordinate.id})">{{coordinate.id}}</a></td>
+                    <td>{{coordinate.uuid}}</td>
+                    <td>{{coordinate.longitude}}</td>
+                    <td>{{coordinate.latitude}}</td>
+                    <td>{{coordinate.altitude}}</td>
+                    <td>{{coordinate.name}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="coordinate-detail({id:coordinate.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="coordinate.edit({id:coordinate.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="coordinate.delete({id:coordinate.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

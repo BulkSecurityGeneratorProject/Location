@@ -1,0 +1,80 @@
+<div>
+    <h2>Locations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="location.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Location
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Uuid</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Abbreviation</span></th>
+                    <th><span>Brief</span></th>
+                    <th><span>Location Status</span></th>
+                    <th><span>Managed By</span></th>
+                    <th><span>Label</span></th>
+                    <th><span>Location Type</span></th>
+                    <th><span>Coordinate</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="location in vm.locations track by location.id">
+                    <td><a ui-sref="location-detail({id:location.id})">{{location.id}}</a></td>
+                    <td>{{location.uuid}}</td>
+                    <td>{{location.name}}</td>
+                    <td>{{location.abbreviation}}</td>
+                    <td>{{location.brief}}</td>
+                    <td>{{location.locationStatus}}</td>
+                    <td>{{location.managedBy}}</td>
+                    <td>
+                        <span ng-repeat="label in location.labels">
+                            <a class="form-control-static" ui-sref="label-detail({id: label.id})">{{label.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <a ui-sref="location-type-detail({id:location.locationType.id})">{{location.locationType.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="coordinate-detail({id:location.coordinate.id})">{{location.coordinate.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="location-detail({id:location.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location.edit({id:location.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="location.delete({id:location.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

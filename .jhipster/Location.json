@@ -1,0 +1,87 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationFacility",
+            "otherEntityName": "locationFacility",
+            "otherEntityRelationshipName": "location"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationActivity",
+            "otherEntityName": "locationActivity",
+            "otherEntityRelationshipName": "location"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationOcassion",
+            "otherEntityName": "locationOcassion",
+            "otherEntityRelationshipName": "location"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationAttraction",
+            "otherEntityName": "locationAttraction",
+            "otherEntityRelationshipName": "location"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locationRelationship",
+            "otherEntityName": "locationRelationship",
+            "otherEntityRelationshipName": "childID"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "label",
+            "otherEntityName": "label",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "locationType",
+            "otherEntityName": "locationType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "coordinate",
+            "otherEntityName": "coordinate",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uuid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abbreviation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brief",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "locationStatus",
+            "fieldType": "LocationStatus",
+            "fieldValues": "DRAFT,PUBLISHED,DELETED"
+        },
+        {
+            "fieldName": "managedBy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170816092751",
+    "entityTableName": "location",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
